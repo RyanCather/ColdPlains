@@ -133,9 +133,11 @@ properties/2/path = NodePath("Camera3D:rotation")
 properties/2/spawn = true
 properties/2/replication_mode = 1
 
-[node name="Player" type="CharacterBody3D" unique_id=820130408]
+[node name="Player" type="CharacterBody3D" unique_id=820130408 node_paths=PackedStringArray("enemy_raycast")]
 collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_2v3wm")
+enemy_raycast = NodePath("Camera3D/EnemyRayCast3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1832600017]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -164,6 +166,10 @@ draw_pass_1 = SubResource("PlaneMesh_b2g4i")
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=1804038237]
 target_position = Vector3(0, 0, -50)
 collision_mask = 2
+
+[node name="EnemyRayCast3D" type="RayCast3D" parent="Camera3D" unique_id=890706288]
+target_position = Vector3(0, 0, -50)
+collision_mask = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1889766177]
 libraries/ = SubResource("AnimationLibrary_p6wdk")
