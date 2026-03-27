@@ -82,6 +82,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0.5, -0.25, -0.5), Vector3(0.455732, -0.215424, -0.5), Vector3(0.5, -0.25, -0.5), Vector3(0.55565, -0.198737, -0.5)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D/Weapon_management/toygun:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.55, -0.25, -0.5), Vector3(0.5, -0.2, -0.5), Vector3(0.517, -0.25, -0.5), Vector3(0.55, -0.2, -0.5)]
+}
 
 [sub_resource type="Animation" id="Animation_efeb8"]
 resource_name = "shoot"
@@ -217,7 +229,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51306, 0)
 [node name="Weapon_management" type="Node3D" parent="Camera3D" unique_id=1777169307]
 
 [node name="Pistol" parent="Camera3D/Weapon_management" unique_id=945160158 instance=ExtResource("2_4esil")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.25, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5555231, -0.19885391, -0.5)
 
 [node name="MuzzleFlash" type="GPUParticles3D" parent="Camera3D/Weapon_management/Pistol" unique_id=215553547]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0588368, -0.313209)
@@ -231,7 +243,6 @@ draw_pass_1 = SubResource("PlaneMesh_b2g4i")
 
 [node name="toygun" parent="Camera3D/Weapon_management" unique_id=145908076 instance=ExtResource("4_qlg0r")]
 transform = Transform3D(-4.371139e-11, 0, -0.001, 0, 0.001, 0, 0.001, 0, -4.371139e-11, 0.522, -0.18, -0.55)
-visible = false
 
 [node name="Hand" type="Node3D" parent="Camera3D" unique_id=1826501949]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.51306, 0)

@@ -4,7 +4,9 @@ signal health_changed(health_value)
 
 @onready var camera = $Camera3D
 @onready var anim_player = $AnimationPlayer
-@onready var muzzle_flash = $Camera3D/Pistol/MuzzleFlash
+@onready var muzzle_flash = $Camera3D/Weapon_management/Pistol/MuzzleFlash
+@onready var pistol = $Camera3D/Weapon_management/Pistol
+@onready var toygun = $Camera3D/Weapon_management/toygun
 @onready var raycast = $Camera3D/RayCast3D
 @onready var flashlight = $Camera3D/Hand/SpotLight3D
 @onready var health_bar = $CanvasLayer/HUD/HealthBar
@@ -43,6 +45,8 @@ func _on_health_changed(health_value):\
 func _ready():
 	if not is_multiplayer_authority(): return
 	
+	pistol.hide()
+	toygun.hide()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera.current = true
 	
@@ -82,6 +86,14 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+	
+	if Input.is_action_just_pressed("swap_to_pistol"):
+		toygun.hide()
+		pistol.show()
+
+	if Input.is_action_just_pressed("swap_to_toy_gun"):
+		toygun.show()
+		pistol.hide()
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
