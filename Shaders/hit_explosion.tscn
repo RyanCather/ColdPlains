@@ -154,6 +154,8 @@ curve = SubResource("Curve_4o42d")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_edmss"]
 gravity = Vector3(0, 0, 0)
+scale_min = 0.75
+scale_max = 1.25
 scale_curve = SubResource("CurveTexture_edmss")
 color = Color(1, 1, 1, 0.019607844)
 color_ramp = SubResource("GradientTexture1D_prg7t")
