@@ -5,6 +5,7 @@ signal health_changed(health_value)
 @onready var camera = $Camera3D
 @onready var anim_player = $AnimationPlayer
 @onready var muzzle_flash = $Camera3D/Weapon_management/Pistol/MuzzleFlash
+@onready var weapon_management = $Camera3D/Weapon_management
 @onready var pistol = $Camera3D/Weapon_management/Pistol
 @onready var toygun = $Camera3D/Weapon_management/toygun
 @onready var uzi = $Camera3D/Weapon_management/Uzi
@@ -20,6 +21,7 @@ signal health_changed(health_value)
 @export var slide_friction: float = 0.95
 @export var no_cooldown = false
 
+var current_weapon = null
 var hit_explosion_scene = preload("res://Shaders/hit_explosion.tscn")
 
 var is_sliding: bool = false
@@ -46,9 +48,7 @@ func _on_health_changed(health_value):\
 
 func _ready():
 	if not is_multiplayer_authority(): return
-	uzi.hide()
-	pistol.hide()
-	toygun.hide()
+	#switch_weapons(pistol)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera.current = true
 	
@@ -81,6 +81,7 @@ func _unhandled_input(event):
 			get_parent().add_child(hit_explosion)
 
 
+	
 func _physics_process(delta):
 	if not is_multiplayer_authority() or is_dead: 
 		return
@@ -89,22 +90,6 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
-	if Input.is_action_just_pressed("swap_to_pistol"):
-		toygun.hide()
-		pistol.show()
-		uzi.hide()
-		var current_weapon = pistol
-	if Input.is_action_just_pressed("swap_to_toy_gun"):
-		toygun.show()
-		pistol.hide()
-		var current_weapon = toygun
-		uzi.hide()
-	if Input.is_action_just_pressed("swap_to_uzi"):
-		uzi.show()
-		pistol.hide()
-		toygun.hide()
-		var current_weapon = uzi
-
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -153,8 +138,24 @@ func _physics_process(delta):
 	else:
 		anim_player.play("idle")
 
+	if Input.is_action_just_pressed("swap_to_pistol"):
+		#switch_weapons(pistol)
+		pass
+	if Input.is_action_just_pressed("swap_to_toy_gun"):
+		#switch_weapons(toygun)
+		pass
+	if Input.is_action_just_pressed("swap_to_uzi"):
+		#switch_weapons(uzi)
+		pass
 	move_and_slide()
 
+func switch_weapons():
+	pistol.hide()
+	toygun.hide()
+	uzi.hide()
+	current_weapon = pistol
+	if current_weapon: 
+		current_weapon.show
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "shoot":
 		anim_player.play("idle")
@@ -171,8 +172,7 @@ func play_shoot_effects():
 	anim_player.play("shoot")
 	muzzle_flash.restart()
 	muzzle_flash.emitting = true
-	Uzi_muzzle_flash.restart()
-	Uzi_muzzle_flash.emitting = true
+
 
 @rpc("any_peer")
 func receive_damage():

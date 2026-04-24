@@ -16,26 +16,26 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D/Weapon_management/toygun:rotation")
+tracks/0/path = NodePath("Camera3D/Weapon_management/toygun:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, -1.5707964, 0)]
+"values": [Vector3(0.522, -0.16, -0.55)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D/Weapon_management/toygun:position")
+tracks/1/path = NodePath("Camera3D/Weapon_management/toygun:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.522, -0.18, -0.55)]
+"values": [Vector3(0, -1.5707964, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_knepc"]
@@ -123,33 +123,29 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0.454152, 0, 0), Vector3(0, 0, 0)]
 }
-
-[sub_resource type="Animation" id="Animation_tuyoq"]
-resource_name = "toygun_shoot"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D/Weapon_management/toygun:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.15, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, -1.5707964, 0), Vector3(-1.0430332e-08, -1.5707964, -0.2409427), Vector3(0, -1.5707964, 0.13962634), Vector3(0, -1.5707964, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D/Weapon_management/toygun:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.09),
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/Weapon_management/toygun:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0.522, -0.18, -0.55), Vector3(0.522, -0.16, -0.55)]
+"values": [Vector3(0.522, -0.16, -0.55), Vector3(0.522, -0.16, -0.55)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D/Weapon_management/toygun:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.11, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5707964, 0), Vector3(-3.396091e-09, -1.5707964, -0.07777187), Vector3(0, -1.5707964, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p6wdk"]
@@ -157,8 +153,7 @@ _data = {
 &"RESET": SubResource("Animation_jhgv2"),
 &"idle": SubResource("Animation_knepc"),
 &"move": SubResource("Animation_qcgne"),
-&"shoot": SubResource("Animation_efeb8"),
-&"toygun_shoot": SubResource("Animation_tuyoq")
+&"shoot": SubResource("Animation_efeb8")
 }
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_hn37q"]
@@ -230,7 +225,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51306, 0)
 [node name="Weapon_management" type="Node3D" parent="Camera3D" unique_id=1777169307]
 
 [node name="Pistol" parent="Camera3D/Weapon_management" unique_id=945160158 instance=ExtResource("2_4esil")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5359164, -0.21691498, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.25, -0.5)
+visible = false
 
 [node name="MuzzleFlash" type="GPUParticles3D" parent="Camera3D/Weapon_management/Pistol" unique_id=215553547]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0588368, -0.313209)
@@ -243,13 +239,15 @@ process_material = SubResource("ParticleProcessMaterial_uu53b")
 draw_pass_1 = SubResource("PlaneMesh_b2g4i")
 
 [node name="toygun" parent="Camera3D/Weapon_management" unique_id=145908076 instance=ExtResource("4_qlg0r")]
-transform = Transform3D(-2.1664033e-11, 0, -0.00054015644, 0, 0.00050341495, 0, 0.0004956153, 0, -2.3610988e-11, 0.522, -0.18, -0.55)
+transform = Transform3D(-2.1664035e-11, 0, -0.00054015644, 0, 0.00050341495, 0, 0.00049561536, 0, -2.3610988e-11, 0.522, -0.16, -0.55)
 
 [node name="Uzi" parent="Camera3D/Weapon_management" unique_id=488215013 instance=ExtResource("5_tuyoq")]
-transform = Transform3D(-6.119594e-10, 0, 0.014, 0, 0.014, 0, -0.014, 0, -6.119594e-10, 0.55820125, -0.20862663, -0.51259923)
+transform = Transform3D(-5.2453664e-10, 0, 0.012, 0, 0.012, 0, -0.012, 0, -5.2453664e-10, 0.55820125, -0.20862663, -0.51259923)
+visible = false
 
 [node name="UMuzzleFlash" type="GPUParticles3D" parent="Camera3D/Weapon_management/Uzi" unique_id=1450434305]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0588368, -0.313209)
+visible = false
 emitting = false
 amount = 1
 lifetime = 0.25
