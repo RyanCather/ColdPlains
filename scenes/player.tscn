@@ -146,6 +146,11 @@ flashlight = NodePath("Camera3D/Hand/SpotLight3D")
 health_bar = NodePath("CanvasLayer/Healthbar")
 enemy_raycast = NodePath("Camera3D/EnemyRayCast3D")
 particle_raycast = NodePath("Camera3D/ParticleRayCast")
+walk_speed = null
+slide_speed = null
+slide_duration = null
+slide_friction = null
+no_cooldown = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1832600017]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
