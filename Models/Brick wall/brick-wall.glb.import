@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cf1dcxwv6bvl3"
-path="res://.godot/imported/Pistol.glb-1fd254495abb615398dae053a56e6bdf.scn"
+uid="uid://cs2ctdalkyter"
+path="res://.godot/imported/brick-wall.glb-30b5497df958ed7c1abd484363308793.scn"
 
 [deps]
 
-source_file="res://models/Pistol.glb"
-dest_files=["res://.godot/imported/Pistol.glb-1fd254495abb615398dae053a56e6bdf.scn"]
+source_file="res://Models/Brick wall/brick-wall.glb"
+dest_files=["res://.godot/imported/brick-wall.glb-30b5497df958ed7c1abd484363308793.scn"]
 
 [params]
 
-nodes/root_type="Node3D"
-nodes/root_name="Scene Root"
+nodes/root_type=""
+nodes/root_name=""
 nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
@@ -38,5 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-gltf/naming_version=0
+gltf/naming_version=2
 gltf/embedded_image_handling=1

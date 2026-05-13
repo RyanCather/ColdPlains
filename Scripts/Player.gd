@@ -23,7 +23,7 @@ var slide_timer: float = 0.0
 var is_dead: bool = false
 
 var health = 100
-var damage = 3
+var damage = 10
 
 var SPEED = 10.0
 var JUMP_VELOCITY = 10.0
