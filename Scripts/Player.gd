@@ -24,7 +24,7 @@ var slide_timer: float = 0.0
 var is_dead: bool = false
 #var player_id: int 
 
-var health = 3
+var health = 100
 var damage = 3
 
 var SPEED = 10.0
